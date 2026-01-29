@@ -1,3 +1,8 @@
+---
+layout: home
+title: Livingston Cha
+---
+
 # Shinkook Cha
 
 Hi! I'm a student interested in biostatistics, machine learning and optimization.
