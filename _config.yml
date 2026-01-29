@@ -1,3 +1,9 @@
-theme: jekyll-theme-basically-basic
-title: Shinkook Cha
+title: Livingston Cha
 description: Personal website
+author: Livingston Cha
+
+remote_theme: mmistakes/jekyll-theme-basically-basic
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
