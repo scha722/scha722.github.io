@@ -1,6 +1,6 @@
-# Your Name
+# Shinkook Cha
 
-Hi! I'm interested in statistics, machine learning, and finance.
+Hi! I'm a student interested in biostatistics, machine learning and optimization.
 
 ## About Me
 Short bio here.
