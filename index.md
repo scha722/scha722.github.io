@@ -6,5 +6,5 @@ Hi! I'm interested in statistics, machine learning, and finance.
 Short bio here.
 
 ## Links
-- [GitHub](https://github.com/yourusername)
-- Email: you@email.com
+- [GitHub](https://github.com/scha722)
+- Email: shinkookcha@gmail.com
