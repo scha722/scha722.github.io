@@ -1,6 +1,6 @@
-title: Livingston Cha
+title: Shinkook(Livingston) Cha
 description: Personal website
-author: Livingston Cha
+author: Shinkook(Livingston) Cha
 
 remote_theme: mmistakes/jekyll-theme-basically-basic
 
@@ -12,6 +12,6 @@ navigation:
   - title: Home
     url: /
   - title: Mathematical Statistics
-    url: /math-stat/
+    url: /mathematical_statistics.md
 
     
