@@ -7,3 +7,11 @@ remote_theme: mmistakes/jekyll-theme-basically-basic
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
+
+navigation:
+  - title: Home
+    url: /
+  - title: Mathematical Statistics
+    url: /mathematical-statistics/
+
+    
