@@ -1,5 +1,5 @@
 ---
-title: Problem 5.3
+title: Problem Set
 permalink: /math-stat/problem-5-3/
 ---
 
