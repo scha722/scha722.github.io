@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Problem Set
 permalink: /math-stat/problem-5-3/
 ---
