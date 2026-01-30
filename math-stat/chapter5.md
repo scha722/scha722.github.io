@@ -1,3 +1,8 @@
+---
+title: Problem 5.3
+permalink: /math-stat/problem-5-3/
+---
+
 **(5.3.)** 확률밀도함수가 $f(x;\theta) = \exp^{-(x-\theta)} I_{(\theta, +\infty)}(x), \quad \theta \in \mathbb{R}$ 인 모집단으로부터의 랜덤표본 $X_1, \dots,X_n$에 대하여 $Y_n = \min_{(1 \le i \le1)} X_i$이라고 할 때  
 
 $$
