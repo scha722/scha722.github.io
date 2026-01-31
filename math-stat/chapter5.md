@@ -2,6 +2,7 @@
 layout: page
 title: Problem Set
 permalink: /math-stat/problem-5-3/
+nav: false
 ---
 
 ## Problem 5.3
