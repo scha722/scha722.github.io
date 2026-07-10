@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Portfolio</title>
+<meta name="description" content="Statistical Machine Learning · Biostatistics · AI for Medicine">
+
+<!-- Tailwind CSS (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- FontAwesome (CDN) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- Fonts: Source Serif 4 (display), Inter (body), JetBrains Mono (data/labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FBFAF8;
+    --paper-raised:#FFFFFF;
+    --ink:#1B2430;
+    --slate:#55606B;
+    --slate-soft:#8B95A1;
+    --line:#DDE3E7;
+    --accent:#2B4F63;
+    --accent-deep:#1D3947;
+    --accent-soft:#E2EBEE;
+  }
+  html{scroll-behavior:smooth;}
+  body{
+    background-color:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-display{font-family:'Source Serif 4', ui-serif, Georgia, serif;}
+  .font-mono{font-family:'JetBrains Mono', ui-monospace, monospace;}
+
+  /* Signature: hand-drawn regression line reveal */
+  .reg-line{
+    stroke-dasharray: 620;
+    stroke-dashoffset: 620;
+    animation: draw 1.8s cubic-bezier(.65,0,.35,1) 0.3s forwards;
+  }
+  .reg-band{
+    opacity:0;
+    animation: fadein 1s ease 1.4s forwards;
+  }
+  .reg-dot{
+    opacity:0;
+    transform: scale(0.4);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: popin .5s cubic-bezier(.34,1.56,.64,1) forwards;
+  }
+  @keyframes draw{ to { stroke-dashoffset: 0; } }
+  @keyframes fadein{ to { opacity:1; } }
+  @keyframes popin{ to { opacity:1; transform: scale(1);} }
+
+  @media (prefers-reduced-motion: reduce){
+    .reg-line, .reg-band, .reg-dot{ animation: none !important; opacity:1 !important; stroke-dashoffset:0 !important; transform:none !important;}
+  }
+
+  .tick-divider{
+    background-image: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 14px);
+    height:1px;
+  }
+
+  .nav-link{ position:relative; }
+  .nav-link::after{
+    content:'';
+    position:absolute; left:0; bottom:-4px;
+    width:0%; height:1.5px; background:var(--accent);
+    transition: width .25s ease;
+  }
+  .nav-link:hover::after{ width:100%; }
+
+  .card-hover{ transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+  .card-hover:hover{ transform: translateY(-4px); box-shadow: 0 12px 28px -12px rgba(27,36,48,0.18); border-color: var(--accent); }
+
+  details > summary{ list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker{ display:none; }
+  details[open] .chev{ transform: rotate(180deg); }
+  .chev{ transition: transform .25s ease; }
+
+  details[open] .abstract-body{
+    animation: expand .3s ease forwards;
+  }
+  @keyframes expand{
+    from{ opacity:0; transform: translateY(-4px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  ::selection{ background: var(--accent-soft); color: var(--accent-deep); }
+
+  :focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .btn-primary{ background: var(--accent); }
+  .btn-primary:hover{ background: var(--accent-deep); }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ===================== NAV ===================== -->
+<header class="sticky top-0 z-50 bg-[var(--paper)]/90 backdrop-blur border-b border-[var(--line)]">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center justify-between h-16">
+      <a href="#top" class="font-display text-lg tracking-tight text-[var(--ink)]">
+        J. <span class="italic">Rivers</span><span class="text-[var(--accent)]">.</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 font-mono text-[13px] uppercase tracking-wide text-[var(--slate)]">
+        <a href="#about" class="nav-link hover:text-[var(--ink)]">About</a>
+        <a href="#cv" class="nav-link hover:text-[var(--ink)]">CV</a>
+        <a href="#archive" class="nav-link hover:text-[var(--ink)]">Archive</a>
+        <a href="#publications" class="nav-link hover:text-[var(--ink)]">Publications</a>
+        <a href="#contact" class="nav-link hover:text-[var(--ink)]">Contact</a>
+      </nav>
+      <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden w-9 h-9 flex items-center justify-center text-[var(--ink)]">
+        <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+      </button>
+    </div>
+    <nav id="mobileMenu" class="hidden md:hidden flex flex-col gap-1 pb-4 font-mono text-sm uppercase tracking-wide text-[var(--slate)]">
+      <a href="#about" class="py-2 border-b border-[var(--line)]">About</a>
+      <a href="#cv" class="py-2 border-b border-[var(--line)]">CV</a>
+      <a href="#archive" class="py-2 border-b border-[var(--line)]">Archive</a>
+      <a href="#publications" class="py-2 border-b border-[var(--line)]">Publications</a>
+      <a href="#contact" class="py-2">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="top" class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-20">
+  <div class="grid md:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
+    <div>
+      <p class="font-mono text-[13px] uppercase tracking-[0.18em] text-[var(--accent)] mb-5">
+        Statistics &middot; Machine Learning &middot; Medicine
+      </p>
+      <h1 id="about" class="font-display text-4xl sm:text-5xl md:text-[3.4rem] leading-[1.08] text-[var(--ink)] scroll-mt-24">
+        Applying rigorous statistics to the convergence of AI and biological data.
+      </h1>
+      <p class="mt-6 text-[var(--slate)] text-lg leading-relaxed max-w-xl">
+        I'm a researcher working at the intersection of statistical theory and applied machine learning,
+        with a focus on building models that are as interpretable as they are predictive &mdash;
+        for problems that begin in the clinic and end in the equations.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-2.5">
+        <span class="px-3.5 py-1.5 rounded-full border border-[var(--line)] bg-[var(--paper-raised)] text-sm text-[var(--ink)]">Statistical Machine Learning</span>
+        <span class="px-3.5 py-1.5 rounded-full border border-[var(--line)] bg-[var(--paper-raised)] text-sm text-[var(--ink)]">Biostatistics</span>
+        <span class="px-3.5 py-1.5 rounded-full border border-[var(--line)] bg-[var(--paper-raised)] text-sm text-[var(--ink)]">AI for Medicine</span>
+      </div>
+
+      <div class="mt-9 flex items-center gap-5">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener" aria-label="GitHub"
+           class="w-10 h-10 rounded-full border border-[var(--line)] flex items-center justify-center text-[var(--slate)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" aria-label="LinkedIn"
+           class="w-10 h-10 rounded-full border border-[var(--line)] flex items-center justify-center text-[var(--slate)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:you@university.edu" aria-label="Email"
+           class="w-10 h-10 rounded-full border border-[var(--line)] flex items-center justify-center text-[var(--slate)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <span class="font-mono text-sm text-[var(--slate-soft)]">you@university.edu</span>
+      </div>
+    </div>
+
+    <!-- Signature element: fitted regression line over a scatter, drawing itself in -->
+    <div class="relative">
+      <div class="rounded-2xl border border-[var(--line)] bg-[var(--paper-raised)] p-5 shadow-sm">
+        <svg viewBox="0 0 400 300" class="w-full h-auto" role="img" aria-label="Scatter plot with a fitted regression line and confidence band">
+          <line x1="40" y1="20" x2="40" y2="260" stroke="var(--line)" stroke-width="1"/>
+          <line x1="40" y1="260" x2="380" y2="260" stroke="var(--line)" stroke-width="1"/>
+
+          <polygon class="reg-band" points="55,205 365,70 365,105 55,240" fill="var(--accent)" opacity="0.09"/>
+
+          <path class="reg-line" d="M 55 225 L 365 85" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+
+          <g fill="var(--accent-deep)">
+            <circle class="reg-dot" style="animation-delay:1.6s" cx="70" cy="235" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:1.65s" cx="105" cy="195" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:1.7s" cx="130" cy="210" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:1.75s" cx="160" cy="170" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:1.8s" cx="190" cy="185" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:1.85s" cx="215" cy="150" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:1.9s" cx="245" cy="140" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:1.95s" cx="270" cy="120" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:2s" cx="300" cy="115" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:2.05s" cx="330" cy="95" r="4.5"/>
+            <circle class="reg-dot" style="animation-delay:2.1s" cx="350" cy="100" r="4.5"/>
+          </g>
+
+          <text x="40" y="280" class="font-mono" font-size="10" fill="var(--slate-soft)">x</text>
+          <text x="14" y="24" class="font-mono" font-size="10" fill="var(--slate-soft)">y</text>
+        </svg>
+        <p class="font-mono text-[11px] text-[var(--slate-soft)] text-center mt-1">fig. 1 &mdash; ŷ = β₀ + β₁x, 95% CI shaded</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tick-divider max-w-6xl mx-auto"></div>
+
+<!-- ===================== CV ===================== -->
+<section id="cv" class="max-w-6xl mx-auto px-6 py-20 scroll-mt-16">
+  <div class="rounded-2xl bg-[var(--accent-deep)] px-8 py-12 md:px-14 md:py-14 flex flex-col md:flex-row items-center md:items-center justify-between gap-8 relative overflow-hidden">
+    <svg class="absolute -right-10 -bottom-16 opacity-10" width="260" height="260" viewBox="0 0 200 200" fill="none">
+      <circle cx="100" cy="100" r="90" stroke="white" stroke-width="1"/>
+      <circle cx="100" cy="100" r="60" stroke="white" stroke-width="1"/>
+      <circle cx="100" cy="100" r="30" stroke="white" stroke-width="1"/>
+    </svg>
+    <div class="relative z-10 text-center md:text-left">
+      <p class="font-mono text-[12px] uppercase tracking-[0.18em] text-white/60 mb-2">Curriculum Vitae</p>
+      <h2 class="font-display text-2xl md:text-3xl text-white">Full academic record, in one document.</h2>
+      <p class="text-white/70 mt-2 max-w-md">Education, research experience, publications, teaching, and awards &mdash; updated quarterly.</p>
+    </div>
+    <a href="/assets/cv.pdf" download
+       class="relative z-10 shrink-0 inline-flex items-center gap-3 bg-white text-[var(--accent-deep)] font-medium px-6 py-3.5 rounded-lg hover:bg-[var(--accent-soft)] transition-colors">
+      <i class="fa-solid fa-download"></i>
+      Download CV
+    </a>
+  </div>
+</section>
+
+<!-- ===================== ACADEMIC ARCHIVE ===================== -->
+<section id="archive" class="max-w-6xl mx-auto px-6 py-16 scroll-mt-16">
+  <div class="max-w-xl mb-12">
+    <p class="font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--accent)] mb-2">Academic Archive</p>
+    <h2 class="font-display text-3xl text-[var(--ink)]">Study notes, written to be read twice.</h2>
+    <p class="text-[var(--slate)] mt-3">
+      Typeset lecture notes and derivations from coursework and self-study, shared in case they're useful to someone else working through the same proofs.
+    </p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Card 1 -->
+    <div class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">42 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Mathematical Statistics</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Estimation theory, sufficiency, MLE asymptotics, and hypothesis testing, worked from first principles with full proofs.
+      </p>
+      <a href="/assets/notes-mathematical-statistics.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View Notes <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">36 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Linear Regression</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Full derivations of Ordinary and Generalized Least Squares, Gauss&ndash;Markov conditions, and heteroskedasticity-robust variants.
+      </p>
+      <a href="/assets/notes-linear-regression.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View Notes <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">58 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Real Analysis</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Sequences, continuity, and measure theory foundations &mdash; the machinery underlying asymptotic statistics.
+      </p>
+      <a href="/assets/notes-real-analysis.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View Notes <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== PUBLICATIONS ===================== -->
+<section id="publications" class="max-w-6xl mx-auto px-6 py-20 scroll-mt-16">
+  <div class="max-w-xl mb-12">
+    <p class="font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--accent)] mb-2">Publications &amp; Research</p>
+    <h2 class="font-display text-3xl text-[var(--ink)]">Selected work.</h2>
+  </div>
+
+  <ul class="divide-y divide-[var(--line)] border-t border-b border-[var(--line)]">
+    <li class="py-7">
+      <details>
+        <summary class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+          <span class="font-mono text-sm text-[var(--slate-soft)] shrink-0 w-16">2026</span>
+          <div class="flex-1">
+            <h3 class="font-display text-lg md:text-xl text-[var(--ink)] leading-snug">
+              Predictive Classification Models for Diabetes Risk and Ovarian Cancer Diagnosis: A Comparative Statistical &amp; Machine Learning Study
+            </h3>
+            <p class="text-[var(--slate)] text-sm mt-2">
+              J. Rivers, A. Collaborator, B. Collaborator &middot; <span class="italic">Journal of Biomedical Informatics</span> (placeholder), 2026
+            </p>
+            <div class="mt-4 flex items-center gap-5">
+              <a href="#" class="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-deep)]">
+                Read Paper <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </a>
+              <span class="inline-flex items-center gap-2 text-sm font-medium text-[var(--slate)] cursor-pointer">
+                Abstract <i class="fa-solid fa-chevron-down text-xs chev"></i>
+              </span>
+            </div>
+          </div>
+        </summary>
+        <div class="abstract-body md:pl-24 mt-4 text-[var(--slate)] text-sm leading-relaxed max-w-2xl">
+          We compare regularized logistic regression against gradient-boosted and neural classifiers on two
+          clinical prediction tasks &mdash; early-stage diabetes risk stratification and ovarian cancer
+          malignancy classification &mdash; evaluating calibration and interpretability alongside discriminative
+          performance. Results suggest that well-regularized statistical baselines remain competitive with
+          more complex models once calibration is accounted for, with implications for deployment in
+          resource-constrained clinical settings. <span class="italic">(Placeholder abstract &mdash; replace with your own.)</span>
+        </div>
+      </details>
+    </li>
+  </ul>
+</section>
+
+<!-- ===================== FOOTER / CONTACT ===================== -->
+<footer id="contact" class="border-t border-[var(--line)] scroll-mt-16">
+  <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+    <p class="text-[var(--slate-soft)] text-sm">&copy; 2026 J. Rivers. Built with statistics and Tailwind CSS.</p>
+    <div class="flex items-center gap-5">
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="text-[var(--slate)] hover:text-[var(--accent)]"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" class="text-[var(--slate)] hover:text-[var(--accent)]"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="mailto:you@university.edu" class="text-[var(--slate)] hover:text-[var(--accent)]"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.toggle('fa-xmark');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuIcon.classList.add('fa-bars');
+    menuIcon.classList.remove('fa-xmark');
+  }));
+</script>
+</body>
+</html>
