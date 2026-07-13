@@ -19,7 +19,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- EDIT: page title -->
 <title>Mathematical Statistics — Course Notes</title>
-<meta name="description" content="Course notes on measure-theoretic probability and asymptotic statistical theory.">
+<meta name="description" content="Course notes on probability spaces, sufficiency, point estimation, and hypothesis testing.">
 
 <!-- Tailwind CSS (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -93,7 +93,7 @@
   <div class="max-w-6xl mx-auto px-6">
     <div class="flex items-center justify-between h-16">
       <a href="index.html" class="font-display text-lg tracking-tight text-[var(--ink)]">
-        Shinkook <span class="italic">Cha</span><span class="text-[var(--accent)]">.</span>
+        J. <span class="italic">Rivers</span><span class="text-[var(--accent)]">.</span>
       </a>
       <a href="index.html"
          class="inline-flex items-center gap-2 font-mono text-[13px] uppercase tracking-wide text-[var(--slate)] hover:text-[var(--accent)] transition-colors">
@@ -110,7 +110,7 @@
   <p class="font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--accent)] mb-2">Academic Archive</p>
   <h1 class="font-display text-4xl text-[var(--ink)]">Mathematical Statistics</h1>
   <p class="text-[var(--slate)] mt-3 max-w-xl leading-relaxed">
-    Foundational notes on probability built from measure theory, and the asymptotic machinery (convergence in distribution, the delta method, and limiting behavior of estimators) that underlies modern statistical inference.
+    Foundational notes spanning probability theory, data reduction, and the core theory of point and interval estimation used throughout statistical inference.
   </p>
 
   <!-- EDIT: Subject Toggle — mark the current page's tab with class="tab active" and
@@ -137,13 +137,13 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">31 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">14 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Measure-Theoretic Probability</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Probability Spaces &amp; Axioms</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Sigma-algebras, measurable functions, and the construction of probability as a measure &mdash; the rigorous foundation beneath density functions and expectation.
+        Sample spaces, sigma-algebras, and the Kolmogorov axioms &mdash; the formal starting point for everything that follows.
       </p>
-      <a href="/assets/math-stat-measure-theoretic-probability.pdf" target="_blank" rel="noopener"
+      <a href="/assets/math-stat-01-probability-spaces.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
         View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
@@ -154,13 +154,132 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">27 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">17 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Asymptotic Limits</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Random Variables &amp; Transformations</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Convergence in probability and distribution, the Law of Large Numbers, the Central Limit Theorem, and the delta method for approximating estimator limiting distributions.
+        Distribution and density functions, change-of-variables techniques, and moment generating functions.
       </p>
-      <a href="/assets/math-stat-asymptotic-limits.pdf" target="_blank" rel="noopener"
+      <a href="/assets/math-stat-02-random-variables.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">13 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Order Statistics</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Joint and marginal distributions of order statistics, with applications to sample minima, maxima, and the sample median.
+      </p>
+      <a href="/assets/math-stat-03-order-statistics.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">16 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Data Reduction &amp; Sufficiency</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        The sufficiency principle, factorization theorem, and minimal sufficient statistics for exponential family models.
+      </p>
+      <a href="/assets/math-stat-04-sufficiency.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">11 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">The Likelihood Principle</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        How the likelihood function alone should inform inference, and its relationship to sufficiency.
+      </p>
+      <a href="/assets/math-stat-05-likelihood-principle.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">19 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Point Estimation: Maximum Likelihood</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Deriving MLEs, invariance, and the regularity conditions needed for consistency and asymptotic normality.
+      </p>
+      <a href="/assets/math-stat-06-mle.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">18 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Point Estimation: UMVUE</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Unbiasedness, the Cram&eacute;r&ndash;Rao lower bound, and the Lehmann&ndash;Scheff&eacute; theorem for constructing UMVUEs.
+      </p>
+      <a href="/assets/math-stat-07-umvue.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">15 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Hypothesis Testing: Fundamentals</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Type I/II error, the Neyman&ndash;Pearson lemma, and uniformly most powerful tests.
+      </p>
+      <a href="/assets/math-stat-08-hypothesis-testing.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">12 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Interval Estimation &amp; Confidence Sets</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Pivotal quantities, the duality between confidence sets and hypothesis tests, and large-sample confidence intervals.
+      </p>
+      <a href="/assets/math-stat-09-interval-estimation.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
         View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
@@ -172,7 +291,7 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="border-t border-[var(--line)]">
   <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-[var(--slate-soft)] text-sm">&copy; 2026 S. Cha.</p>
+    <p class="text-[var(--slate-soft)] text-sm">&copy; 2026 J. Rivers.</p>
     <a href="index.html" class="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-deep)]">&larr; Back to Portfolio</a>
   </div>
 </footer>

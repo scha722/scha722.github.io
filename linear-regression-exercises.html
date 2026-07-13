@@ -18,8 +18,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- EDIT: page title -->
-<title>Linear Regression — Exercise Questions</title>
-<meta name="description" content="Problem sets on OLS derivations and GLS with robust errors.">
+<title>Linear Regression Analysis — Exercise Questions</title>
+<meta name="description" content="Problem sets covering OLS, GLS, diagnostics, and inference in the linear model.">
 
 <!-- Tailwind CSS (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -108,9 +108,9 @@
 <!-- EDIT: subject name and page-type subtitle -->
 <section class="max-w-6xl mx-auto px-6 pt-14 pb-8">
   <p class="font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--accent)] mb-2">Academic Archive</p>
-  <h1 class="font-display text-4xl text-[var(--ink)]">Linear Regression</h1>
+  <h1 class="font-display text-4xl text-[var(--ink)]">Linear Regression Analysis</h1>
   <p class="text-[var(--slate)] mt-3 max-w-xl leading-relaxed">
-    Problem sets and worked solutions applying the OLS and GLS derivations from the notes to concrete datasets.
+    Twelve problem sets, ordered to follow the notes, each with full worked solutions.
   </p>
 
   <!-- EDIT: Subject Toggle — mark the current page's tab with class="tab active" and
@@ -137,13 +137,13 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">10 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">6 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Problem Set 1: OLS Derivations</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Simple Regression: Point Estimators</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Deriving the normal equations by hand and verifying the Gauss&ndash;Markov conditions on sample datasets.
+        Deriving the slope and intercept estimators by hand from the least-squares minimization problem.
       </p>
-      <a href="/assets/linear-regression-exercises-ols.pdf" target="_blank" rel="noopener"
+      <a href="/assets/linreg-ex-01-simple-regression.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
         View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
@@ -154,13 +154,183 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">13 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">8 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Problem Set 2: GLS &amp; Robust Errors</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">OLS in Matrix Form</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Applying FGLS under heteroskedasticity and comparing the results to robust standard-error corrections.
+        Working through the matrix algebra of the normal equations and confirming the closed-form solution on a small dataset.
       </p>
-      <a href="/assets/linear-regression-exercises-gls.pdf" target="_blank" rel="noopener"
+      <a href="/assets/linreg-ex-02-ols-matrix-form.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">7 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Verifying Gauss&ndash;Markov Conditions</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Checking each Gauss&ndash;Markov assumption against sample data and identifying which assumptions are violated.
+      </p>
+      <a href="/assets/linreg-ex-03-gauss-markov.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">5 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Intercept-Only Models</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Proving that the regression sum of squares for an intercept-only model equals zero.
+      </p>
+      <a href="/assets/linreg-ex-04-intercept-only.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">9 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Sums of Squares &amp; the ANOVA Identity</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Proving the decomposition SST = SSR + SSE and interpreting each term geometrically.
+      </p>
+      <a href="/assets/linreg-ex-05-sums-of-squares.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">6 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Properties of OLS Residuals</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Showing that OLS residuals sum to zero and are orthogonal to the fitted values and each regressor.
+      </p>
+      <a href="/assets/linreg-ex-06-residual-properties.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">10 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Generalized Least Squares Applications</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Applying the GLS transformation to a dataset with a known covariance structure and comparing to na&iuml;ve OLS.
+      </p>
+      <a href="/assets/linreg-ex-07-gls-applications.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">8 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Testing for Heteroskedasticity</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Applying the Breusch&ndash;Pagan and White tests and computing robust standard errors by hand.
+      </p>
+      <a href="/assets/linreg-ex-08-heteroskedasticity-tests.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">7 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Weighted Least Squares</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Constructing WLS weights from a known variance function and comparing efficiency to unweighted OLS.
+      </p>
+      <a href="/assets/linreg-ex-09-wls.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">6 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Diagnosing Multicollinearity</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Computing variance inflation factors and identifying which predictors to drop or combine.
+      </p>
+      <a href="/assets/linreg-ex-10-multicollinearity.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">9 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Confidence &amp; Prediction Intervals</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Constructing confidence intervals for coefficients and prediction intervals for new observations.
+      </p>
+      <a href="/assets/linreg-ex-11-intervals.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">11 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Comprehensive Review Set</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        A cumulative problem set spanning OLS, GLS, diagnostics, and inference, styled after a final exam.
+      </p>
+      <a href="/assets/linreg-ex-12-review.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
         View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
