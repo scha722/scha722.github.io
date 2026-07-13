@@ -4,7 +4,7 @@
   -----------------------------------
   Duplicate this file to create each Notes / Exercises page, e.g.:
     math-stat-notes.html          math-stat-exercises.html
-    linear-regression-notes.html  linear-regression-exercises.html
+    lin-reg-notes.html  lin-reg-exercises.html
     real-analysis-notes.html      real-analysis-exercises.html
 
   Edit the blocks marked EDIT:
@@ -18,8 +18,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- EDIT: page title -->
-<title>Linear Regression Analysis — Exercise Questions</title>
-<meta name="description" content="Problem sets on linear regression analysis, from simple regression inference through variable selection and biased estimation.">
+<title>Linear Regression Analysis — Course Notes</title>
+<meta name="description" content="Course notes on linear regression analysis, from multivariate normal theory through model selection and biased regression.">
 
 <!-- Tailwind CSS (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -93,7 +93,7 @@
   <div class="max-w-6xl mx-auto px-6">
     <div class="flex items-center justify-between h-16">
       <a href="index.html" class="font-display text-lg tracking-tight text-[var(--ink)]">
-        Shinkook <span class="italic">Cha</span><span class="text-[var(--accent)]">.</span>
+        S. <span class="italic">Cha</span><span class="text-[var(--accent)]">.</span>
       </a>
       <a href="index.html"
          class="inline-flex items-center gap-2 font-mono text-[13px] uppercase tracking-wide text-[var(--slate)] hover:text-[var(--accent)] transition-colors">
@@ -110,17 +110,17 @@
   <p class="font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--accent)] mb-2">Academic Archive</p>
   <h1 class="font-display text-4xl text-[var(--ink)]">Linear Regression Analysis</h1>
   <p class="text-[var(--slate)] mt-3 max-w-xl leading-relaxed">
-    Twelve chapter-aligned problem sets, each with full worked solutions, spanning simple and multiple regression, diagnostics, variable selection, and biased estimation.
+    A nine-part course sequence spanning the multivariate normal foundations of regression, the classical simple and multiple regression models, and diagnostics, biased estimation, and model selection.
   </p>
 
   <!-- EDIT: Subject Toggle — mark the current page's tab with class="tab active" and
        wrap it in a dark pill (bg-[var(--ink)]); the inactive tab stays plain text.
        Point each href at the matching pair of files for this subject. -->
   <div class="mt-7 inline-flex items-center gap-1 p-1 rounded-full border border-[var(--line)] bg-[var(--paper-raised)]">
-    <a href="linear-regression-notes.html" class="tab rounded-full">
+    <a href="lin-reg-notes.html" class="tab active rounded-full bg-[var(--ink)]">
       <i class="fa-solid fa-book-open mr-1.5"></i>Notes
     </a>
-    <a href="linear-regression-exercises.html" class="tab active rounded-full bg-[var(--ink)]">
+    <a href="lin-reg-ex.html" class="tab rounded-full">
       <i class="fa-solid fa-pen mr-1.5"></i>Exercises
     </a>
   </div>
@@ -137,15 +137,49 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">9 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">1 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 3. Simple Linear Regression</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Basics for Linear Regression Analysis</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Exercises estimating the slope and intercept of a single-predictor model by least squares and deriving the sampling distributions of the estimators.
+        Introduces the purpose and scope of regression analysis, the roles of predictor and response variables, and the classical assumptions that underlie the linear model.
       </p>
-      <a href="assets/lin-reg/lin-reg-ex/3. 단순회귀분석.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg/lin-reg-notes/Basics For Linear Regression Analysis.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">5 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 1. Multivariate Normal Distribution</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Covers the mean vector and covariance matrix parameterization of the multivariate normal distribution, along with its conditional and marginal distributions, which underpin the sampling theory of regression estimators.
+      </p>
+      <a href="assets/lin-reg/lin-reg-notes/Ch 1. Multivariate Normal Distribution.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">6 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 2. Simple Linear Regression</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Derives the single-predictor least-squares estimators for the slope and intercept, and establishes their sampling distributions under the classical assumptions.
+      </p>
+      <a href="assets/lin-reg/lin-reg-notes/Ch 2. Simple Linear Regression.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -156,13 +190,13 @@
         </div>
         <span class="font-mono text-[11px] text-[var(--slate-soft)]">8 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 4. Inference on Simple Regression</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 3. Multiple Linear Regression Model</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Problems constructing confidence intervals and hypothesis tests for the slope and intercept parameters of the simple linear regression model.
+        Formulates the multiple regression model in matrix notation and derives the OLS estimator &beta;&#770; = (X&prime;X)&#8315;&sup1;X&prime;y along with its variance&ndash;covariance structure.
       </p>
-      <a href="assets/lin-reg/lin-reg-ex/4. 단순회귀에 관한 추론.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg/lin-reg-notes/Ch 3. Multiple Linear Regression Model.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -171,15 +205,15 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">7 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">6 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 5. Other Topics in Basic Regression Analysis</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 4. Multiple Linear Regression - General Testing</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Exercises on the correlation coefficient, prediction intervals for new observations, and the lack-of-fit test for simple regression.
+        Develops the general linear hypothesis testing framework, including partial F-tests and the extra sum of squares principle for comparing nested models.
       </p>
-      <a href="assets/lin-reg/lin-reg-ex/5. 기초적 회귀분석의 기타논제.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg/lin-reg-notes/Ch 4. Multiple Linear Regression - General Testing.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -188,15 +222,15 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">10 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">6 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 6. Basic Multiple Regression Analysis</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 5. Model Validation And Diagnostics</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Problems setting up the multiple regression model in matrix form and computing the OLS estimator for several predictors.
+        Presents residual analysis, leverage and influence measures such as Cook's distance, and diagnostic plots used to check the adequacy of a fitted regression model.
       </p>
-      <a href="assets/lin-reg/lin-reg-ex/6. 기초적 중회귀분석.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg/lin-reg-notes/Ch 5. Model Validation And Diagnostics.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -205,32 +239,15 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">9 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">2 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 7. Estimation and Hypothesis Testing 1</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 6. Non-full Rank Test</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Exercises on point estimation of individual regression coefficients and single-parameter t-tests in the multiple regression setting.
+        Addresses inference when the design matrix is rank-deficient, introducing generalized inverses and estimable functions to recover valid hypothesis tests.
       </p>
-      <a href="assets/lin-reg/lin-reg-ex/7. 추정과 가설검정(1).pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg/lin-reg-notes/Ch 6. Non-full Rank Test.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-      </a>
-    </article>
-
-    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
-      <div class="flex items-start justify-between mb-5">
-        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
-          <i class="fa-solid fa-file-pdf text-lg"></i>
-        </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">9 pp.</span>
-      </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 8. Estimation and Hypothesis Testing 2</h3>
-      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Problems on joint hypothesis testing via the general linear hypothesis and the partial F-test for comparing nested models.
-      </p>
-      <a href="assets/lin-reg/lin-reg-ex/8. 추정과 가설검정(II).pdf" target="_blank" rel="noopener"
-         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -241,47 +258,13 @@
         </div>
         <span class="font-mono text-[11px] text-[var(--slate-soft)]">8 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 9. Polynomial Regression</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 7. Biased Regression</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Exercises fitting polynomial regression models, including the use of orthogonal polynomials and checks for overfitting at higher degrees.
+        Introduces ridge regression and other biased estimation techniques that trade a controlled amount of bias for a reduction in estimator variance under multicollinearity.
       </p>
-      <a href="assets/lin-reg/lin-reg-ex/9. 다항회귀.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg/lin-reg-notes/Ch 7. Biased Regression.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-      </a>
-    </article>
-
-    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
-      <div class="flex items-start justify-between mb-5">
-        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
-          <i class="fa-solid fa-file-pdf text-lg"></i>
-        </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">10 pp.</span>
-      </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 10. Generalized Regression Analysis</h3>
-      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Problems applying generalized and weighted least squares to models with correlated or heteroskedastic error terms.
-      </p>
-      <a href="assets/lin-reg/lin-reg-ex/10. 일반화 회귀분석.pdf" target="_blank" rel="noopener"
-         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-      </a>
-    </article>
-
-    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
-      <div class="flex items-start justify-between mb-5">
-        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
-          <i class="fa-solid fa-file-pdf text-lg"></i>
-        </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">9 pp.</span>
-      </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 12. Application to Analysis of Variance (ANOVA)</h3>
-      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Exercises recasting one-way and two-way ANOVA as a regression model using indicator variables, and interpreting the resulting coefficients.
-      </p>
-      <a href="assets/lin-reg/lin-reg-ex/12. 분산분석에의 이용.pdf" target="_blank" rel="noopener"
-         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -292,47 +275,13 @@
         </div>
         <span class="font-mono text-[11px] text-[var(--slate-soft)]">8 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 15. Variable Selection</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 8. Model Selection And Assessment</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Problems comparing stepwise selection, best-subsets regression, and criteria such as Mallows' Cp and AIC for choosing a final model.
+        Surveys variable selection procedures and model assessment criteria, including stepwise selection, AIC and BIC, and cross-validation for out-of-sample performance.
       </p>
-      <a href="assets/lin-reg/lin-reg-ex/15. 변수의 선택.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg/lin-reg-notes/Ch 8. Model Selection And Assessment.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-      </a>
-    </article>
-
-    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
-      <div class="flex items-start justify-between mb-5">
-        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
-          <i class="fa-solid fa-file-pdf text-lg"></i>
-        </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">9 pp.</span>
-      </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 16. Regression Diagnostics</h3>
-      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Exercises identifying influential observations and outliers using leverage, studentized residuals, and Cook's distance.
-      </p>
-      <a href="assets/lin-reg/lin-reg-ex/16. 회귀진단.pdf" target="_blank" rel="noopener"
-         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-      </a>
-    </article>
-
-    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
-      <div class="flex items-start justify-between mb-5">
-        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
-          <i class="fa-solid fa-file-pdf text-lg"></i>
-        </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">10 pp.</span>
-      </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 17. Biased Estimation</h3>
-      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Problems applying ridge regression and other shrinkage estimators, and evaluating the resulting bias-variance trade-off under multicollinearity.
-      </p>
-      <a href="assets/lin-reg/lin-reg-ex/17. 편의추정.pdf" target="_blank" rel="noopener"
-         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View Exercises <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -342,7 +291,7 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="border-t border-[var(--line)]">
   <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-[var(--slate-soft)] text-sm">&copy; 2026 S.Cha</p>
+    <p class="text-[var(--slate-soft)] text-sm">&copy; 2026 S.Cha.</p>
     <a href="index.html" class="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-deep)]">&larr; Back to Portfolio</a>
   </div>
 </footer>
