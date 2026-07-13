@@ -18,90 +18,48 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --paper:#FBFAF8;
-    --paper-raised:#FFFFFF;
-    --ink:#1B2430;
-    --slate:#55606B;
-    --slate-soft:#8B95A1;
-    --line:#DDE3E7;
-    --accent:#2B4F63;
-    --accent-deep:#1D3947;
-    --accent-soft:#E2EBEE;
-  }
-  html{scroll-behavior:smooth;}
-  body{
-    background-color:var(--paper);
-    color:var(--ink);
-    font-family:'Inter', ui-sans-serif, system-ui, sans-serif;
-  }
-  .font-display{font-family:'Source Serif 4', ui-serif, Georgia, serif;}
-  .font-mono{font-family:'JetBrains Mono', ui-monospace, monospace;}
+/* Signature: two Kaplan-Meier step curves drawing in sequence, with censoring ticks */
+.km-curve{
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: km-draw 1.6s cubic-bezier(.65,0,.35,1) forwards;
+}
+.km-curve-control{ animation-delay: 0.3s; }
+.km-curve-treatment{ animation-delay: 2.1s; }
 
-  /* Signature: hand-drawn regression line reveal */
-  .reg-line{
-    stroke-dasharray: 620;
-    stroke-dashoffset: 620;
-    animation: draw 1.8s cubic-bezier(.65,0,.35,1) 0.3s forwards;
-  }
-  .reg-band{
-    opacity:0;
-    animation: fadein 1s ease 1.4s forwards;
-  }
-  .reg-dot{
-    opacity:0;
-    transform: scale(0.4);
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: popin .5s cubic-bezier(.34,1.56,.64,1) forwards;
-  }
-  @keyframes draw{ to { stroke-dashoffset: 0; } }
-  @keyframes fadein{ to { opacity:1; } }
-  @keyframes popin{ to { opacity:1; transform: scale(1);} }
+.km-label{
+  opacity: 0;
+  animation: km-fade 0.6s ease forwards;
+}
+.km-label-control{ animation-delay: 1.8s; }
+.km-label-treatment{ animation-delay: 3.8s; }
 
-  @media (prefers-reduced-motion: reduce){
-    .reg-line, .reg-band, .reg-dot{ animation: none !important; opacity:1 !important; stroke-dashoffset:0 !important; transform:none !important;}
+.km-tick{
+  opacity: 0;
+  animation: km-fade 0.4s ease forwards;
+}
+.km-tick-1{ animation-delay: 4.1s; }
+.km-tick-2{ animation-delay: 4.25s; }
+.km-tick-3{ animation-delay: 4.4s; }
+.km-tick-4{ animation-delay: 4.55s; }
+.km-tick-5{ animation-delay: 4.7s; }
+
+.km-caption{
+  opacity: 0;
+  animation: km-fade 0.6s ease forwards;
+  animation-delay: 5s;
+}
+
+@keyframes km-draw{ to { stroke-dashoffset: 0; } }
+@keyframes km-fade{ to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce){
+  .km-curve, .km-label, .km-tick, .km-caption{
+    animation: none !important;
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
   }
-
-  .tick-divider{
-    background-image: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 14px);
-    height:1px;
-  }
-
-  .nav-link{ position:relative; }
-  .nav-link::after{
-    content:'';
-    position:absolute; left:0; bottom:-4px;
-    width:0%; height:1.5px; background:var(--accent);
-    transition: width .25s ease;
-  }
-  .nav-link:hover::after{ width:100%; }
-
-  .card-hover{ transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-  .card-hover:hover{ transform: translateY(-4px); box-shadow: 0 12px 28px -12px rgba(27,36,48,0.18); border-color: var(--accent); }
-
-  details > summary{ list-style:none; cursor:pointer; }
-  details > summary::-webkit-details-marker{ display:none; }
-  details[open] .chev{ transform: rotate(180deg); }
-  .chev{ transition: transform .25s ease; }
-
-  details[open] .abstract-body{
-    animation: expand .3s ease forwards;
-  }
-  @keyframes expand{
-    from{ opacity:0; transform: translateY(-4px); }
-    to{ opacity:1; transform: translateY(0); }
-  }
-
-  ::selection{ background: var(--accent-soft); color: var(--accent-deep); }
-
-  :focus-visible{
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-
-  .btn-primary{ background: var(--accent); }
-  .btn-primary:hover{ background: var(--accent-deep); }
+}
 </style>
 </head>
 <body class="antialiased">
@@ -176,32 +134,37 @@
     <!-- Signature element: fitted regression line over a scatter, drawing itself in -->
     <div class="relative">
       <div class="rounded-2xl border border-[var(--line)] bg-[var(--paper-raised)] p-5 shadow-sm">
-        <svg viewBox="0 0 400 300" class="w-full h-auto" role="img" aria-label="Scatter plot with a fitted regression line and confidence band">
+        <svg viewBox="0 0 400 300" class="w-full h-auto" role="img" aria-label="Kaplan-Meier survival curves comparing a treatment group to a control group">
+          <!-- Axes -->
           <line x1="40" y1="20" x2="40" y2="260" stroke="var(--line)" stroke-width="1"/>
           <line x1="40" y1="260" x2="380" y2="260" stroke="var(--line)" stroke-width="1"/>
+          <text x="30" y="44" text-anchor="end" class="font-mono" font-size="10" fill="var(--slate-soft)">1.0</text>
+          <text x="30" y="263" text-anchor="end" class="font-mono" font-size="10" fill="var(--slate-soft)">0</text>
 
-          <polygon class="reg-band" points="55,205 365,70 365,105 55,240" fill="var(--accent)" opacity="0.09"/>
+          <!-- Control group — steeper step-down, drawn first -->
+          <path class="km-curve km-curve-control"
+                d="M 60 40 L 100 40 L 100 90 L 150 90 L 150 140 L 190 140 L 190 175 L 230 175 L 230 205 L 280 205 L 280 225 L 370 225"
+                fill="none" stroke="var(--slate-soft)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text class="km-label km-label-control font-mono" x="372" y="220"
+                text-anchor="end" font-size="12" fill="var(--slate-soft)">Control</text>
 
-          <path class="reg-line" d="M 55 225 L 365 85" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Treatment group — stays higher longer, drawn second -->
+          <path class="km-curve km-curve-treatment"
+                d="M 60 40 L 170 40 L 170 65 L 230 65 L 230 95 L 300 95 L 300 120 L 370 120"
+                fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text class="km-label km-label-treatment font-mono" x="372" y="112"
+                text-anchor="end" font-size="12" font-weight="600" fill="var(--accent)">Treatment</text>
 
-          <g fill="var(--accent-deep)">
-            <circle class="reg-dot" style="animation-delay:1.6s" cx="70" cy="235" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:1.65s" cx="105" cy="195" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:1.7s" cx="130" cy="210" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:1.75s" cx="160" cy="170" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:1.8s" cx="190" cy="185" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:1.85s" cx="215" cy="150" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:1.9s" cx="245" cy="140" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:1.95s" cx="270" cy="120" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:2s" cx="300" cy="115" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:2.05s" cx="330" cy="95" r="4.5"/>
-            <circle class="reg-dot" style="animation-delay:2.1s" cx="350" cy="100" r="4.5"/>
+          <!-- Censoring ticks along the Treatment curve's horizontal sections -->
+          <g stroke="var(--accent-deep)" stroke-width="1.5">
+            <line class="km-tick km-tick-1" x1="90" y1="35" x2="90" y2="45"/>
+            <line class="km-tick km-tick-2" x1="130" y1="35" x2="130" y2="45"/>
+            <line class="km-tick km-tick-3" x1="200" y1="60" x2="200" y2="70"/>
+            <line class="km-tick km-tick-4" x1="265" y1="90" x2="265" y2="100"/>
+            <line class="km-tick km-tick-5" x1="335" y1="115" x2="335" y2="125"/>
           </g>
-
-          <text x="40" y="280" class="font-mono" font-size="10" fill="var(--slate-soft)">x</text>
-          <text x="14" y="24" class="font-mono" font-size="10" fill="var(--slate-soft)">y</text>
         </svg>
-        <p class="font-mono text-[11px] text-[var(--slate-soft)] text-center mt-1">fig. 1 &mdash; ŷ = β₀ + β₁x, 95% CI shaded</p>
+        <p class="km-caption font-mono text-[11px] text-[var(--slate-soft)] text-center mt-1">fig. 1 &mdash; Kaplan-Meier Survival Estimate</p>
       </div>
     </div>
   </div>
