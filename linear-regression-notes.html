@@ -19,7 +19,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- EDIT: page title -->
 <title>Linear Regression Analysis — Course Notes</title>
-<meta name="description" content="Course notes on OLS, the Gauss-Markov theorem, GLS, and heteroskedasticity.">
+<meta name="description" content="Course notes on linear regression analysis, from multivariate normal theory through model selection and biased regression.">
 
 <!-- Tailwind CSS (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -110,17 +110,17 @@
   <p class="font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--accent)] mb-2">Academic Archive</p>
   <h1 class="font-display text-4xl text-[var(--ink)]">Linear Regression Analysis</h1>
   <p class="text-[var(--slate)] mt-3 max-w-xl leading-relaxed">
-    Derivations of the classical linear model, from the OLS normal equations under the Gauss&ndash;Markov assumptions through GLS and the diagnostics used to check them.
+    A nine-part course sequence spanning the multivariate normal foundations of regression, the classical simple and multiple regression models, and diagnostics, biased estimation, and model selection.
   </p>
 
   <!-- EDIT: Subject Toggle — mark the current page's tab with class="tab active" and
        wrap it in a dark pill (bg-[var(--ink)]); the inactive tab stays plain text.
        Point each href at the matching pair of files for this subject. -->
   <div class="mt-7 inline-flex items-center gap-1 p-1 rounded-full border border-[var(--line)] bg-[var(--paper-raised)]">
-    <a href="linear-regression-notes.html" class="tab active rounded-full bg-[var(--ink)]">
+    <a href="lin-reg-notes.html" class="tab active rounded-full bg-[var(--ink)]">
       <i class="fa-solid fa-book-open mr-1.5"></i>Notes
     </a>
-    <a href="linear-regression-exercises.html" class="tab rounded-full">
+    <a href="lin-reg-ex.html" class="tab rounded-full">
       <i class="fa-solid fa-pen mr-1.5"></i>Exercises
     </a>
   </div>
@@ -137,15 +137,15 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">10 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">12 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Simple Linear Regression Basics</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Basics for Linear Regression Analysis</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        The single-predictor model, least-squares fitting by minimization, and interpretation of slope and intercept.
+        Introduces the purpose and scope of regression analysis, the roles of predictor and response variables, and the classical assumptions that underlie the linear model.
       </p>
-      <a href="/assets/linreg-01-simple-regression.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg-note-1.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -156,13 +156,13 @@
         </div>
         <span class="font-mono text-[11px] text-[var(--slate-soft)]">18 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">OLS Derivations (Matrix Form)</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 1. Multivariate Normal Distribution</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        The full matrix derivation of the OLS normal equations and closed-form estimator &beta;&#770; = (X&prime;X)&#8315;&sup1;X&prime;y.
+        Covers the mean vector and covariance matrix parameterization of the multivariate normal distribution, along with its conditional and marginal distributions, which underpin the sampling theory of regression estimators.
       </p>
-      <a href="/assets/linreg-02-ols-matrix-form.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg-note-2.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -173,13 +173,13 @@
         </div>
         <span class="font-mono text-[11px] text-[var(--slate-soft)]">14 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">The Gauss&ndash;Markov Theorem</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 2. Simple Linear Regression</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Proving OLS is BLUE under the classical assumptions, and what happens when each assumption is relaxed.
+        Derives the single-predictor least-squares estimators for the slope and intercept, and establishes their sampling distributions under the classical assumptions.
       </p>
-      <a href="/assets/linreg-03-gauss-markov.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg-note-3.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -188,15 +188,15 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">13 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">19 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Properties of the OLS Estimator</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 3. Multiple Linear Regression Model</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Unbiasedness, the variance&ndash;covariance matrix of &beta;&#770;, and the Gauss&ndash;Markov efficiency result in practice.
+        Formulates the multiple regression model in matrix notation and derives the OLS estimator &beta;&#770; = (X&prime;X)&#8315;&sup1;X&prime;y along with its variance&ndash;covariance structure.
       </p>
-      <a href="/assets/linreg-04-ols-properties.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg-note-4.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -205,15 +205,15 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">20 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">17 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Generalized Least Squares (GLS)</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 4. Multiple Linear Regression - General Testing</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Extending OLS to non-spherical error structures via the transformed model, and the feasible GLS (FGLS) procedure.
+        Develops the general linear hypothesis testing framework, including partial F-tests and the extra sum of squares principle for comparing nested models.
       </p>
-      <a href="/assets/linreg-05-gls.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg-note-5.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -224,13 +224,13 @@
         </div>
         <span class="font-mono text-[11px] text-[var(--slate-soft)]">16 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Heteroskedasticity</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 5. Model Validation And Diagnostics</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Detecting non-constant error variance, White's heteroskedasticity-robust standard errors, and weighted alternatives.
+        Presents residual analysis, leverage and influence measures such as Cook's distance, and diagnostic plots used to check the adequacy of a fitted regression model.
       </p>
-      <a href="/assets/linreg-06-heteroskedasticity.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg-note-6.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -239,15 +239,15 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">11 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">13 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Multicollinearity</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 6. Non-full Rank Test</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Near-linear dependence among predictors, variance inflation factors, and its effect on coefficient stability.
+        Addresses inference when the design matrix is rank-deficient, introducing generalized inverses and estimable functions to recover valid hypothesis tests.
       </p>
-      <a href="/assets/linreg-07-multicollinearity.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg-note-7.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -258,13 +258,13 @@
         </div>
         <span class="font-mono text-[11px] text-[var(--slate-soft)]">15 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Model Diagnostics &amp; Residual Analysis</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 7. Biased Regression</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Residual plots, leverage, Cook's distance, and checking the classical assumptions against fitted models.
+        Introduces ridge regression and other biased estimation techniques that trade a controlled amount of bias for a reduction in estimator variance under multicollinearity.
       </p>
-      <a href="/assets/linreg-08-diagnostics.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg-note-8.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
@@ -273,15 +273,15 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">12 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">16 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Weighted Least Squares (WLS)</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Chapter 8. Model Selection And Assessment</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        WLS as a special case of GLS with a diagonal weighting matrix, applied to known heteroskedastic variance patterns.
+        Surveys variable selection procedures and model assessment criteria, including stepwise selection, AIC and BIC, and cross-validation for out-of-sample performance.
       </p>
-      <a href="/assets/linreg-09-wls.pdf" target="_blank" rel="noopener"
+      <a href="assets/lin-reg-note-9.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
-        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        View Notes <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
     </article>
 
