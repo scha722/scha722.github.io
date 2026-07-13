@@ -19,7 +19,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- EDIT: page title -->
 <title>Mathematical Statistics — Exercise Questions</title>
-<meta name="description" content="Problem sets on estimation theory and asymptotic statistics.">
+<meta name="description" content="Rigorous problem sets on estimation, sufficiency, hypothesis testing, and convergence in probability.">
 
 <!-- Tailwind CSS (CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -110,7 +110,7 @@
   <p class="font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--accent)] mb-2">Academic Archive</p>
   <h1 class="font-display text-4xl text-[var(--ink)]">Mathematical Statistics</h1>
   <p class="text-[var(--slate)] mt-3 max-w-xl leading-relaxed">
-    Problem sets and worked solutions covering estimation theory, sufficiency, and the asymptotic results developed in the notes.
+    Nine problem sets covering estimation theory, sufficiency, hypothesis testing, and the convergence results developed in the notes, each with full worked solutions.
   </p>
 
   <!-- EDIT: Subject Toggle — mark the current page's tab with class="tab active" and
@@ -137,13 +137,13 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">12 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">6 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Problem Set 1: Estimation &amp; Sufficiency</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Probability Space Proofs</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Likelihood-based estimation, sufficiency, and the Cram&eacute;r&ndash;Rao bound, with full worked solutions.
+        Verifying the Kolmogorov axioms on constructed set functions and proving basic properties of sigma-algebras.
       </p>
-      <a href="/assets/math-stat-exercises-estimation-sufficiency.pdf" target="_blank" rel="noopener"
+      <a href="/assets/math-stat-ex-01-probability-spaces.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
         View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
@@ -154,13 +154,132 @@
         <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
           <i class="fa-solid fa-file-pdf text-lg"></i>
         </div>
-        <span class="font-mono text-[11px] text-[var(--slate-soft)]">14 pp.</span>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">7 pp.</span>
       </div>
-      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Problem Set 2: Asymptotic Inference</h3>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Order Statistics Distributions</h3>
       <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
-        Applications of the CLT, the delta method, and convergence in distribution to large-sample hypothesis testing.
+        Deriving the joint and marginal densities of order statistics for several parametric families.
       </p>
-      <a href="/assets/math-stat-exercises-asymptotic-inference.pdf" target="_blank" rel="noopener"
+      <a href="/assets/math-stat-ex-02-order-statistics.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">8 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Sufficiency Principle Applications</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Applying the factorization theorem to identify sufficient statistics, and constructing minimal sufficient statistics for exponential families.
+      </p>
+      <a href="/assets/math-stat-ex-03-sufficiency.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">9 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">MLE Derivations &amp; Invariance</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Deriving maximum likelihood estimators by hand and applying the invariance property to functions of parameters.
+      </p>
+      <a href="/assets/math-stat-ex-04-mle-derivations.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">10 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Deriving the UMVUE</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Using the Lehmann&ndash;Scheff&eacute; theorem together with a complete sufficient statistic to construct the UMVUE.
+      </p>
+      <a href="/assets/math-stat-ex-05-umvue.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">7 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Cram&eacute;r&ndash;Rao Lower Bound Applications</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Computing the Cram&eacute;r&ndash;Rao lower bound and checking whether a given unbiased estimator attains it.
+      </p>
+      <a href="/assets/math-stat-ex-06-cramer-rao.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">8 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Likelihood Ratio Tests for Normal Distributions</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Constructing likelihood ratio tests for the mean and variance of a normal population, with rejection regions derived explicitly.
+      </p>
+      <a href="/assets/math-stat-ex-07-lrt-normal.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">9 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Convergence in Probability Proofs</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Epsilon&ndash;delta style proofs of convergence in probability, including applications of Chebyshev's inequality and the weak law of large numbers.
+      </p>
+      <a href="/assets/math-stat-ex-08-convergence-in-probability.pdf" target="_blank" rel="noopener"
+         class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
+        View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+      </a>
+    </article>
+
+    <article class="card-hover rounded-xl border border-[var(--line)] bg-[var(--paper-raised)] p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-lg bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent-deep)]">
+          <i class="fa-solid fa-file-pdf text-lg"></i>
+        </div>
+        <span class="font-mono text-[11px] text-[var(--slate-soft)]">6 pp.</span>
+      </div>
+      <h3 class="font-display text-xl text-[var(--ink)] mb-2">Confidence Interval Construction</h3>
+      <p class="text-[var(--slate)] text-sm leading-relaxed flex-1">
+        Building pivotal quantities from scratch and using them to construct exact and large-sample confidence intervals.
+      </p>
+      <a href="/assets/math-stat-ex-09-confidence-intervals.pdf" target="_blank" rel="noopener"
          class="mt-6 inline-flex items-center justify-center gap-2 w-full border border-[var(--ink)] text-[var(--ink)] text-sm font-medium py-2.5 rounded-lg hover:bg-[var(--ink)] hover:text-white transition-colors">
         View PDF <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
       </a>
